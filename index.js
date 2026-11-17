@@ -12,3 +12,11 @@ app.use(express.static("public"));
 app.get("/", (req, res) => {
     res.redirect("/index.html");
 });
+
+app.post("/api/chat", async (req, res) => {
+    console.log("Request masuk ke Express!");
+
+
+app.listen(port, () => {
+    console.log(`Server berjalan di http://localhost:${port}`);
+});
