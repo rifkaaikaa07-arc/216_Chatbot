@@ -16,6 +16,35 @@ app.get("/", (req, res) => {
 app.post("/api/chat", async (req, res) => {
     console.log("Request masuk ke Express!");
 
+    try {
+        const messages = req.body.messages;
+
+        if (!messages || !Array.isArray(messages)){
+            return res.status(400).json({
+                error: "Messages harus berupa array"
+            });
+        }
+
+        // Request ke OpenRouter
+        const response = await fetch(
+            "https://openrouter.ai/api/v1/chat/completions",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`
+                },
+
+                body: JSON.stringify({
+                    model: "inclusionai/ling-3.2-flash:free",
+                    messages: messages,
+                    temperature: 0.7,
+                    max_tokens: 1000,
+                    stream: true
+                })
+            }
+        );
 
 app.listen(port, () => {
     console.log(`Server berjalan di http://localhost:${port}`);
