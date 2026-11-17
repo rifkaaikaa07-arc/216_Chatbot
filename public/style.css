@@ -1,0 +1,237 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eaf2fa;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+    padding: 15px;
+}
+
+/* Container utama */
+.chat-container {
+    width: 500px;
+    height: 700px;
+    max-height: 95vh;
+
+    background: #ffffff;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    box-shadow: 0 8px 30px rgba(120, 140, 170, 0.18);
+}
+
+/* Header */
+.chat-header {
+    background: #f8dce8;
+    color: #70465a;
+
+    padding: 22px 15px;
+
+    text-align: center;
+}
+
+.header-icon {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.chat-header h1 {
+    margin: 0;
+    font-size: 23px;
+}
+
+.chat-header p {
+    margin: 7px 0 0;
+    font-size: 13px;
+    color: #866779;
+}
+
+/* Area percakapan */
+.chat-box {
+    flex: 1;
+
+    padding: 20px;
+
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+
+    background: #fffafd;
+}
+
+/* Pesan */
+.message {
+    display: flex;
+    flex-direction: column;
+}
+
+.message-content {
+    max-width: 80%;
+
+    padding: 12px 15px;
+
+    border-radius: 16px;
+
+    line-height: 1.6;
+    font-size: 14px;
+
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+/* Pesan pengguna */
+.message.user {
+    align-items: flex-end;
+}
+
+.message.user .message-content {
+    background: #dcecfb;
+    color: #405d78;
+
+    border-bottom-right-radius: 5px;
+}
+
+/* Pesan AI */
+.message.bot {
+    align-items: flex-start;
+}
+
+.message.bot .message-content {
+    background: #e2f0df;
+    color: #49634a;
+
+    border-bottom-left-radius: 5px;
+}
+
+/* Tombol aksi pesan: edit dan salin */
+.message-actions {
+    display: flex;
+    gap: 7px;
+    margin-top: 6px;
+}
+
+.message-actions button {
+    border: none;
+    background: #f8dce8;
+    color: #70465a;
+
+    padding: 6px 10px;
+    border-radius: 8px;
+
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.message-actions button:hover {
+    background: #f1c7da;
+}
+
+/* Form input */
+.chat-form {
+    display: flex;
+
+    padding: 15px;
+
+    background: #ffffff;
+    border-top: 1px solid #f0e5eb;
+
+    gap: 10px;
+}
+
+.chat-form input {
+    flex: 1;
+    min-width: 0;
+
+    padding: 13px;
+
+    border: 1px solid #d9dfe9;
+    border-radius: 12px;
+
+    font-size: 14px;
+    outline: none;
+}
+
+.chat-form input:focus {
+    border-color: #c6a9d8;
+    box-shadow: 0 0 0 3px rgba(198, 169, 216, 0.15);
+}
+
+.chat-form button {
+    padding: 12px 20px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #c9b8df;
+    color: #ffffff;
+
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.chat-form button:hover {
+    background: #b49acb;
+}
+
+.chat-form button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Footer */
+.chat-footer {
+    padding: 10px;
+
+    text-align: center;
+
+    background: #ffffff;
+    color: #a394a3;
+
+    font-size: 11px;
+}
+
+/* Scrollbar */
+.chat-box::-webkit-scrollbar {
+    width: 7px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+    background: #e6d7e8;
+    border-radius: 10px;
+}
+
+/* Tampilan HP */
+@media (max-width: 600px) {
+    body {
+        padding: 0;
+    }
+
+    .chat-container {
+        width: 100%;
+        height: 100vh;
+        max-height: none;
+        border-radius: 0;
+    }
+
+    .message-content {
+        max-width: 88%;
+    }
+}
